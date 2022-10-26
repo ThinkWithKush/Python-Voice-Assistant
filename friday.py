@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from pyttsx3 import *
 import speech_recognition as sr
 import wikipedia
@@ -58,13 +56,9 @@ def takeCommand():
 
 
 if __name__ == "__main__":
-    args=sys.argv()
-    print(args)
-
     wishMe()
     while True:
         os.system('cls')
-        
         query = takeCommand().lower()
     
     #Logic : ASli WAle
