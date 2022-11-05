@@ -1,19 +1,18 @@
-from pyttsx3 import *
+import pyttsx3 as psx
 import speech_recognition as sr
 import wikipedia
 import datetime
 import time
+import sys
 import webbrowser
 import subprocess
-import sys
 import os
 
 # Constants
 BROWSER = r"C:\Program Files\Mozilla Firefox\firefox.exe"
 
-engine=init('sapi5')
+engine=psx.init('sapi5')
 voices=engine.getProperty('voices')
-#print(voices[0].id)
 engine.setProperty('voice',voices[1].id)
 
 # Setting firefox as default browser for opening web
@@ -40,7 +39,7 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening.....")
-        r.pause_threshold = 1.5
+        r.pause_threshold = 1
         audio = r.listen(source)
     try:
         print("Recognizing....")
@@ -60,8 +59,9 @@ if __name__ == "__main__":
     while True:
         os.system('cls')
         query = takeCommand().lower()
+
+        # Wikipedia Search
     
-    #Logic : ASli WAle
         if 'wikipedia' in query:
             speak('..Searching...Wikipedia')
             query=query.replace("wikipedia","")
@@ -69,7 +69,6 @@ if __name__ == "__main__":
             speak("...Sir...ACcording To ...wikipedia")
             print(results)
             speak(results)
-            #ABOVE Code can search any thing Through wikipediya and even read (Deafult as per code 2 Sentences) for you
 
         # General Data
 
@@ -100,6 +99,9 @@ if __name__ == "__main__":
         
         elif 'github' in query:
             subprocess.call([BROWSER,"-new-tab","www.github.com"])
+
+        elif 'leetcode' in query:
+            subprocess.call([BROWSER,"-new-tab","www.leetcode.com"])
         
         elif 'studio' in query:
             os.startfile("C:\\Users\\Cvi\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
@@ -110,6 +112,6 @@ if __name__ == "__main__":
             speak("Sir the Time is : "+strtime)
         
         # Good Bye
-        elif 'end' in  query or 'shutdown' in query or 'bye' in query or 'shut up' in query or 'go to hell' in query:
+        elif 'end' in  query or 'shutdown' in query or 'bye' in query or 'shut up' in query or 'go to hell' in query or "f*** off" in query:
             speak("Goodbye Sir , Thanks for calling me")
             break
