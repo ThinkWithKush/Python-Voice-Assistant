@@ -3,8 +3,8 @@ Welcome to my Voice Assistant Project developed using Python and **Speech Recogn
 
 This Voice Assistant Works as:
 * Text messages are converted to speech using a Voice Engine
-* Voice Input is taken and converted to Speech Recognition module in python which uses Google to convert speech to text
-* Multiple checks are run on the text to check for what task is to be done, and as soon as some condition is passed, the task binded to the condition is executed
+* Voice Input is taken and converted to text using Speech Recognition module in python which uses Google to convert speech to text
+* Multiple checks are run on the text to checks based on conditions for what task is to be done, and as soon as some condition is passed, the task binded to the condition is executed
 * Extra data that might be needed to print is converted to Speech from text
 * Friday repeats and waits for next command
 
